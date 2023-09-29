@@ -36,22 +36,22 @@
         <div class="absolute" id="docentes"></div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"  crossorigin="anonymous"></script>
+
 <script>
     document.addEventListener("DOMContentLoaded", e=>{
         mnxMenu.addEventListener("click", event=>{
             event.preventDefaul();
 
             let form = event.target.dataset.form,
-                $element = document.querySelector('#${form}');
-            if( $element.length()<=0 ){
-                fetch('/alumnos.html').then(resp=>resp.text()).then(resp=>{
-                    $element.innerHTML = resp;
-                })
-            }
+                $element = $('#${form}');
+            if( $element.find("form").length<=0 ){
+                fetch('/frmalumnos').then(resp=>resp.text()).then(resp=>{
+                    $(element).html(resp);
+                });
+           }
 
-
-            
-        })
+        });
     })
 </script>
    
